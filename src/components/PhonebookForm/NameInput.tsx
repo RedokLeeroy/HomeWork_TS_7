@@ -1,6 +1,6 @@
 import s from "./Input.module.css"
 import React, { ChangeEventHandler } from "react"
-export const NameInput = ({name, value, func}: {name:string, value:string, func: ChangeEventHandler}) => {
+export const NameInput = ({name, value, func}: {name:string, value:string, func: ChangeEventHandler}):JSX.Element => {
     return <label className={s.label}>Name<input
   className={s.input}
   type="text"

@@ -1,5 +1,5 @@
 import s from './Contacts.module.css';
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 
 import { Item } from './Item';
 export const Contacts = ({ contact, onDelete }: {contact: {id: string, name:string, phone:string}[], onDelete: (arg:string) => void}):JSX.Element => {

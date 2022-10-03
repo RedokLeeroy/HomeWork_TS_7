@@ -8,15 +8,15 @@ const phoneBookSlice = createSlice({
   name: 'contacts',
   initialState: itemsInitialState.add,
   extraReducers: {
-    [fetchUsers.fulfilled]: (_, action) => action.payload,
-    [addUsers.fulfilled]: (state, action) => [...state, action.payload],
-    [deleteUser.fulfilled]: (state, action) =>
-      state.filter(item => item.id !== action.payload),
+    [fetchUsers.fulfilled.toString()]: (_, action) => action.payload,
+    [addUsers.fulfilled.toString()]: (state, action) => [...state, action.payload],
+    [deleteUser.fulfilled.toString()]: (state, action) => state.filter(item => item.id !== action.payload),
   },
+  reducers: {}
 });
 
 const filterReducer = createReducer(itemsInitialState.filter, {
-  [filterAction]: (_, action) => action.payload,
+  [filterAction.toString()]: (_, action) => action.payload,
 });
 
 export const mainReducer = combineReducers({
