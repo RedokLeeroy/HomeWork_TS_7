@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
+import React, { MouseEventHandler } from 'react';
 
 import { Item } from './Item';
-export const Contacts = ({ contact, onDelete }) => {
+export const Contacts = ({ contact, onDelete }: {contact: {id: string, name:string, phone:string}[], onDelete: (arg:string) => void}):JSX.Element => {
   return (
     <ul className={s.list}>
       {contact.map(({ id, name, phone }) => (
@@ -12,7 +12,4 @@ export const Contacts = ({ contact, onDelete }) => {
   );
 };
 
-Item.propTypes = {
-  contact: PropTypes.array,
-  onDelete: PropTypes.func.isRequired,
-};
+

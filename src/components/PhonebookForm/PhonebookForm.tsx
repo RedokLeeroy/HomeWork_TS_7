@@ -3,21 +3,21 @@ import { FormSubmit } from './FormSubmit';
 import { NameInput } from './NameInput';
 import { PhoneInput } from './PhoneInput';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemSelector } from 'redux/items-selector';
-import { addUsers } from 'redux/ItemsOperations';
+import { addItemSelector } from '../../redux/items-selector';
+import { addUsers } from '../../redux/ItemsOperations';
 
 //---------------------------------------------------------------------------------//
 
 export const PhonebookForm = () => {
-  const [nameEl, setNameEl] = useState('');
-  const [phone, setPhone] = useState('');
+  const [nameEl, setNameEl] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
   const dispatch = useDispatch();
   const contacts = useSelector(addItemSelector);
   console.log(contacts);
 
-  const handSubmit = event => {
+  const handSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    const isHere = contacts.some(({ name }) => nameEl === name);
+    const isHere = contacts.some(({ name }:{name:string}) => nameEl === name);
     if (isHere) {
       alert(`Name already in contacts`);
       return;
